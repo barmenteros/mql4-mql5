@@ -37,7 +37,7 @@ int Open(string name,int id)
 //+------------------------------------------------------------------+
 //|  Save the file                                                  |
 //+------------------------------------------------------------------+
-int Save(string name,int id)
+int SaveFile(string name,int id)
   {
    PrintFormat("%s function called (name=%s id=%d)",__FUNCTION__,name,id);
    return(2);
@@ -122,9 +122,9 @@ bool CControlsDialog::CreateButtons(void)
    int x2;
    int y2=y1+BUTTON_HEIGHT;
 //--- add buttons objects together with pointers to functions
-   AddButton(new MyButton("Open",Open));
-   AddButton(new MyButton("Save",Save));
-   AddButton(new MyButton("Close",Close));
+   AddButton(MyButton("Open",Open));
+   AddButton(MyButton("Save",SaveFile));
+   AddButton(MyButton("Close",Close));
 //--- create the buttons graphically
    for(int i=0;i<m_buttons.Total();i++)
      {
