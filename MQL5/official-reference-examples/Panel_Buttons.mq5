@@ -96,7 +96,7 @@ public:
    //--- create
    virtual bool      Create(const long chart,const string name,const int subwin,const int x1,const int y1,const int x2,const int y2) override;
    //--- add the button
-   bool              AddButton(MyButton &button){return(m_buttons.Add(GetPointer(button)));m_buttons.Sort();};
+   bool              AddButton(MyButton *button){return(m_buttons.Add(GetPointer(button)));m_buttons.Sort();};
 protected:
    //--- create the buttons 
    bool              CreateButtons(void);
@@ -122,9 +122,9 @@ bool CControlsDialog::CreateButtons(void)
    int x2;
    int y2=y1+BUTTON_HEIGHT;
 //--- add buttons objects together with pointers to functions
-   AddButton(MyButton("Open",Open));
-   AddButton(MyButton("Save",SaveFile));
-   AddButton(MyButton("Close",Close));
+   AddButton(new MyButton("Open",Open));
+   AddButton(new MyButton("Save",SaveFile));
+   AddButton(new MyButton("Close",Close));
 //--- create the buttons graphically
    for(int i=0;i<m_buttons.Total();i++)
      {
